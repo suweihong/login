@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Double;
 
-use Laravel\Lumen\Routing\Controller as BaseController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
  
-class IndexController extends BaseController
+class IndexController extends Controller
 {
 
     // __construct
@@ -31,7 +31,7 @@ class IndexController extends BaseController
 
     // authd
     public function doAuth(Request $request){
-        dd('验证双重认证是否成功，成功则跳回callback 失败则 重试');
+        echo ('验证双重认证是否成功，成功则跳回callback 失败则 重试');
     }
 
  

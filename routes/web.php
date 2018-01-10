@@ -2,47 +2,50 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
+
 // homepage
-$router->get('/', 'IndexController@index');
+Route::get('/', function(){
+	return redirect('/oauth');
+});
 
 // OAUTH 登录
-$router->get('/oauth', 'Oauth\IndexController@oauth');
-$router->post('/oauth', 'Oauth\IndexController@doOAuth');
+Route::get('oauth', 'Oauth\IndexController@oauth');
+Route::post('oauth', 'Oauth\IndexController@doOauth');
 
 // 双重认证[登录后进行]
-$router->get('/double/auth', 'Double\IndexController@auth');
-$router->post('/double/auth', 'Double\IndexController@doAuth');
+Route::get('double/auth', 'Double\IndexController@auth');
+Route::post('double/auth', 'Double\IndexController@doAuth');
 
 
 // 注册过程
-$router->get('/signup', 'Signup\IndexController@index');
-$router->post('/signup', 'Signup\IndexController@indexd');
+Route::get('signup', 'Signup\IndexController@index');
+Route::post('signup', 'Signup\IndexController@indexd');
 
 // 验证完成 设置密码
-$router->get('/signup/verified', 'Signup\IndexController@verified');
-$router->post('/signup/verified', 'Signup\IndexController@doVerified');
+Route::get('signup/verified', 'Signup\IndexController@verified');
+Route::post('signup/verified', 'Signup\IndexController@doVerified');
 
 // 初始化双重认证
-$router->get('/double/init', 'Double\IndexController@init');
-$router->post('/double/init', 'Double\IndexController@doInit');
+Route::get('double/init', 'Double\IndexController@init');
+Route::post('double/init', 'Double\IndexController@doInit');
 
 
 // 忘记密码
-$router->get('/forget', 'Forget\IndexController@index');
-$router->post('/forget', 'Forget\IndexController@doIndex');
+Route::get('forget', 'Forget\IndexController@index');
+Route::post('forget', 'Forget\IndexController@doIndex');
 
 // 忘记密码验证完成 设置新密码
-$router->get('/forget/verified', 'Forget\IndexController@verified');
-$router->post('/forget/verified', 'Forget\IndexController@doVerified');
+Route::get('forget/verified', 'Forget\IndexController@verified');
+Route::post('forget/verified', 'Forget\IndexController@doVerified');
 
 
 // API 相关

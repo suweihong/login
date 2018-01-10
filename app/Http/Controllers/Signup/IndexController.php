@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Signup;
 
-use Laravel\Lumen\Routing\Controller as BaseController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
  
-class IndexController extends BaseController
+class IndexController extends Controller
 {
 
     // __construct

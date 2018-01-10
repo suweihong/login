@@ -29,8 +29,7 @@ return [
     |
     */
 
-    // 'host' => env('MAIL_HOST', 'smtp.jd.local'),
-    'host' => env('MAIL_HOST', 'smtpdm.aliyun.com'),
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 80),
+    'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,13 +55,9 @@ return [
     |
     */
 
-    // 'from' => [
-    //     'address' => env('MAIL_FROM_ADDRESS', 'jdwl_lounge@jd.com'),
-    //     'name' => env('MAIL_FROM_NAME', 'test'),
-    // ],
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'service@objectclick.com'),
-        'name' => env('MAIL_FROM_NAME', 'ObjectClick'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
     /*
@@ -76,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', null),
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
@@ -89,13 +84,9 @@ return [
     |
     */
 
-    // 'username' => env('MAIL_USERNAME', 'jdwl_lounge@jd.com'),
+    'username' => env('MAIL_USERNAME'),
 
-    // 'password' => env('MAIL_PASSWORD', 'MLdadyshnpp@458'),
-
-        'username' => env('MAIL_USERNAME', 'service@objectclick.com'),
-
-        'password' => env('MAIL_PASSWORD', 'objectclickABC123'),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------

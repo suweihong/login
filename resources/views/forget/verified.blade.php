@@ -3,6 +3,7 @@
 <br>
 
 <form action="/forget/verified" method="post">
+	{{ csrf_field() }}
 	<input type="text" name="password" placeholder="密码"><br><br>
 	<button>提交</button>
 </form>

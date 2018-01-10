@@ -3,6 +3,7 @@
 <br>
 
 <form action="/double/init" method="post">
+	{{ csrf_field() }}
 	<input type="text" name="code" placeholder="000000"><br><br>
 	<button>提交</button>
 </form>
