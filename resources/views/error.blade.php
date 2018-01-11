@@ -11,15 +11,16 @@
     <div class="return">
       <a href="#"></a>
     </div>
-      <nav class="header">双重验证</nav>
-      <section class="content">
-        <form class="" action="/double/auth" method="post">
-          {{ csrf_field() }}
-          <p>请输入由谷歌身份验证器生成的双重验证码</p>
-          <input class="verify" type="text" maxlength="6" name="oneCode" placeholder="000000">
-          <input type="submit" name="submit" value="验证">
 
-        </form>
+      <section class="content">
+          <p>{{$err}}</p>
+          <p>错误信息2！！！</p>
+
+        <button class="btn btn-primary" type="button" name="button"><a style="color:#fff;" href="#">返回</a></button>
+
+          <!-- <div class="others">
+              <a class="right" href="#"><button class="btn btn-primary" type="button" name="button">返回</button></a>
+          </div> -->
       </section>
 
 

@@ -13,12 +13,12 @@ class IndexController extends Controller
     {
     }
 
-    // index
+    // index 忘记密码的页面
     public function index(Request $request){
         return view('forget.index');
     }
 
-    // doIndex
+    // doIndex 
     public function doIndex(Request $request){
         return redirect('/forget/verified');
     }

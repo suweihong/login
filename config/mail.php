@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => 'email-smtp.us-east-1.amazonaws.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => 25,
 
     /*
     |--------------------------------------------------------------------------
@@ -55,9 +55,13 @@ return [
     |
     */
 
+    // 'from' => [
+    //     'address' => env('MAIL_FROM_ADDRESS', 'jdwl_lounge@jd.com'),
+    //     'name' => env('MAIL_FROM_NAME', 'test'),
+    // ],
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => 'noreply@thaiex.net',
+        'name' => 'THAIEX',
     ],
 
     /*
@@ -71,7 +75,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => 'tls',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +88,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+        'username' => 'AKIAITNPKGP6BOH7H5MQ',
 
-    'password' => env('MAIL_PASSWORD'),
+        'password' => 'AvD3JuII1PijK9ZRtr2jI7gKbzIEWE27uyP9gtn9Jre7',
 
     /*
     |--------------------------------------------------------------------------

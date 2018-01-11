@@ -27,7 +27,7 @@ Route::post('double/auth', 'Double\IndexController@doAuth');
 
 
 // 注册过程
-Route::get('signup', 'Signup\IndexController@index');
+Route::get('signup', 'Signup\IndexController@index')->middleware('cross');
 Route::post('signup', 'Signup\IndexController@indexd');
 
 // 验证完成 设置密码
