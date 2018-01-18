@@ -26,5 +26,12 @@
 
       <script src="/js/jquery.js" charset="utf-8"></script>
       <script src="/js/bootstrap.min.js" charset="utf-8"></script>
+      <script src="/js/myServer.js" charset="utf-8"></script>
+      <script type="text/javascript">
+        window.onload = () => {
+          console.log("mess");
+          
+        };
+      </script>
   </body>
 </html>

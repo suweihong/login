@@ -3,16 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>ThaiEx</title>
+    <link rel="stylesheet" href="/css/simple-line-icons.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href={{asset('/css/lzlogin.css')}}>
+       <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{asset('layer/layer.js')}}"></script>
 
   </head>
   <body>
-    <div class="return">
-      <a href="#"></a>
-    </div>
+      <div class="return" style="left:50px;">
+        <a><i class="icon-arrow-left"></i></a>
+      </div>
       <nav class="header">绑定双重验证</nav>
       <section class="double-content">
+
+        <div id="my-error" style="display:none;" class="alert alert-danger alert-dismissible fade in" role="alert">
+          <div type="button" class="close">
+            <span aria-hidden="true">&times;</span>
+          </div>
+          <p id="my-err-msg" style="width:200px;"></p>
+        </div>
+
         <form class="" action="/double/init" method="post">
             {{ csrf_field() }}
             <div class="row">
@@ -46,7 +57,8 @@
               <p class="col-lg-offset-1 col-lg-1 col-md-offset-1 col-md-1 col-sm-1 col-xs-1">步骤3.</p>
               <p class="col-lg-10 col-md-10 col-sm-11 col-xs-11">请把下方的密码写下并保存在一个安全的地方:</p>
               <div class="col-lg-offset-2 col-lg-10 col-md-offset-2 col-md-11 col-sm-offset-1 col-sm-11 col-xs-offset-1 col-xs-11">
-                <mark>{{$secret}}</mark>
+              <!-- secret 谷歌验证器的密钥 -->
+                <mark id="secret">{{$secret}}</mark>
                 <p>如果您的手机丢失时，需要此密码您才能访问您的账户。</p>
               </div>
             </div>
@@ -62,13 +74,15 @@
                   <!-- <input type="text" maxlength="6" class="verify-input" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" name="" value=""> -->
                   <!-- <input type="text" maxlength="6" class="verify-input" :value="oneCode" name="oneCode" v-model="value"> -->
                   <!-- <input type="text" maxlength="6" style="color:transparent;text-shadow:0 0 0 #fff;" class="verify-input" :value="formData.oneCode" name="oneCode" v-model="formData.oneCode" placeholder="000000"> -->
-                  <input type="text" maxlength="6" class="verify" name="oneCode" placeholder="000000">
+              <!-- oneCode 谷歌验证器的6位数字 -->
+                  <input type="text" maxlength="6" class="verify" name="oneCode" id="oneCode" placeholder="000000">
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                   <input class="verify" type="submit" name="commit" value="开启">
                 </div>
               </div>
             </div>
+        
 
         </form>
       </section>
@@ -79,20 +93,32 @@
       <script src="/js/myServer.js" charset="utf-8"></script>
       <script type="text/javascript">
           window.onload = () => {
-            var send = window.ser;
 
-            $(".verify").click(() => {
-              console.log("提交。。。")
-              // send.post("/double/init", {email:"。。。"}).done(function (data) {
-              //   console.log("post接收请求数据。。。")
-              //   console.log(data);
-              // }).fail(function (err) {
-              //   console.log("err", err);
-              // });
+            $("input[type='submit']").click(()=> {
+              var userData = {
+                secret: '{{$secret}}',
+                oneCode: $("#oneCode").val(),
+                token:'{{$token}}',
+                _token:'{{csrf_token()}}',
+                targetUrl: $("#targetUrl").val(),
+              };
+
+              window.ser.post("/double/init", userData).done(data => {
+                if (!data.errcode || data.errcode == "0") {
+                layer.msg(data.errmsg,{icon:6},function(){
+                  window.location.href = "/";
+                });
+                  
+                } else {
+                   layer.msg(data.errmsg,{icon: 5});
+                };
+              }).fail(err => console.log(err));
+
 
               return false;
             });
           };
       </script>
+
   </body>
 </html>

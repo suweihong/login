@@ -61,5 +61,9 @@ class User extends Model
         return $this->hasMany('App\Models\AddressReceive');
     }
 
-    
+    //获取mailtoken
+    public function hasManymailtoken()
+{
+    return $this->hasMany('App\Models\MailToken');
+}
 }

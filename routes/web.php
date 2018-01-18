@@ -22,7 +22,7 @@ Route::get('oauth', 'Oauth\IndexController@oauth');
 Route::post('oauth', 'Oauth\IndexController@doOauth');
 
 // 双重认证[登录后进行]
-Route::get('double/auth', 'Double\IndexController@auth');
+Route::get('double/auth/{api_token}', 'Double\IndexController@auth');
 Route::post('double/auth', 'Double\IndexController@doAuth');
 
 
@@ -31,11 +31,11 @@ Route::get('signup', 'Signup\IndexController@index')->middleware('cross');
 Route::post('signup', 'Signup\IndexController@indexd');
 
 // 验证完成 设置密码
-Route::get('signup/verified', 'Signup\IndexController@verified');
+Route::get('signup/verified/{token}', 'Signup\IndexController@verified');
 Route::post('signup/verified', 'Signup\IndexController@doVerified');
 
 // 初始化双重认证
-Route::get('double/init', 'Double\IndexController@init');
+Route::get('double/init/{token}', 'Double\IndexController@init');
 Route::post('double/init', 'Double\IndexController@doInit');
 
 
@@ -44,9 +44,11 @@ Route::get('forget', 'Forget\IndexController@index');
 Route::post('forget', 'Forget\IndexController@doIndex');
 
 // 忘记密码验证完成 设置新密码
-Route::get('forget/verified', 'Forget\IndexController@verified');
+Route::get('forget/verified/{token}', 'Forget\IndexController@verified');
 Route::post('forget/verified', 'Forget\IndexController@doVerified');
 
 
 // API 相关
 // ............
+
+Route::get('/test/','Double\IndexController@test');

@@ -14,5 +14,16 @@
    'user_login_fail' => '用户密码验证失败',
 
 
+   'signup_emial_send' => '邮箱验证成功，请设置密码',
+   'signup_password_set' => '密码设置成功',
+   'login_double_open' =>'请开启双重验证',
+   'login_double_operate' =>'双重验证已开启，请进行双重验证',
+   'forget_password_set' =>'邮件发送成功，请输入新密码',
+   'forget_password_save'=>'密码修改成功',
+   'double_signup_success'=>'注册时双重验证成功',
+   'double_signup_fail'=>'注册时双重验证失败',
+   'double_login_sucess'=>'登录时双重验证验证成功',
+   'double_login_fail'=>'登录时双重验证验证失败',  
+
 
   ];

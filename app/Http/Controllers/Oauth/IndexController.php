@@ -108,9 +108,16 @@ class IndexController extends Controller
          //    ]);
         if($user['secret']=='')
         {
-            return redirect('/double/init');
+           return response()->json([
+                    'errcode' => 1001,
+                    'errmsg' => trans('login.login_double_open'),
+                ]);
         }else{
-            return redirect('double/auth');
+             return response()->json([
+                    'errcode' => 0,
+                    'errmsg' => trans('login.login_double_operate'),
+                    'api_token'=>$user->api_token,
+                ]);
         }
         // else 
         

@@ -1,12 +1,35 @@
+a {
+  text-decoration: none; }
+
 body {
   background-color: #2f323d; }
   body .return {
-    position: fixed; }
+    position: fixed;
+    color: red;
+    width: 50px;
+    height: 50px;
+    top: 50px;
+    left: 10%; }
+    body .return i {
+      font-size: 48px;
+      color: #676f7a; }
+      body .return i:hover {
+        color: #fff; }
   body nav.header {
     text-align: center;
     color: #fff;
     font-size: 26px;
     margin: 30px auto; }
+  body #my-error {
+    margin-bottom: 0;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%); }
+    body #my-error p {
+      color: red;
+      font-size: 18px;
+      margin: 0; }
   body .content {
     box-sizing: border-box;
     margin: 60px auto 0;
